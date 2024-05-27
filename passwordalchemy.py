@@ -30,13 +30,15 @@ class mainfuncs:
 		if args.oldprivatekey:
 			creds=lib.db.fetchall()
 		#if creds are present
-		if creds:
+		try:
 			for cred in creds:
 				with open(args.privatekey) as pemfile:
 					privkey=rsa.PrivateKey._load_pkcs1_pem(pemfile.read())
 					pcred=rsa.decrypt(base64.b64decode(cred.ccred),oldprivatekey).decode("utf-8")
 					ccred=base64.b64encode(rsa.encrypt(pcred.encode("utf-8"),pubkey)).decode("utf-8")
-					lib.db.update(cred.domain,ccred)	
+					lib.db.update(cred.domain,ccred)
+		except:
+			pass	
 	
 	#fetch a credential		
 	@staticmethod			
