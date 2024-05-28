@@ -72,7 +72,7 @@ def fetchall():
     with get_session() as session:
 
     	#query passwords by domain
-        p = session.query(Password)
+        p = session.query(Password).all()
 
         #if one is found
         if p:
