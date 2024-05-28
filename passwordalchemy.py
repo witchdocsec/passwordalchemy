@@ -9,7 +9,7 @@ class mainfuncs:
 	@staticmethod
 	def genkeys(args):
 		#generate keypair
-		(pubkey, privkey) = rsa.newkeys(900)
+		(pubkey, privkey) = rsa.newkeys(2048)
 		#if a key is already present
 		if args.oldprivatekey:
 			with open(args.oldprivatekey,"r") as pemfile:
