@@ -81,7 +81,7 @@ def fetchall():
         #error
         else:
             return "No creds found"
-#load credemtial
+#load credential
 def update(domain,ccred):
 	#with context manager
     with get_session() as session:
