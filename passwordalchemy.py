@@ -45,7 +45,7 @@ class mainfuncs:
 	def fetch(args):
 		#send to db library fetch function
 		ccred=lib.db.fetch(args.domain)
-		with open(args.privatekey) as pemfile:
+		with open(args.privatekey, "r") as pemfile:
 			#load rsa private key
 			privkey=rsa.PrivateKey._load_pkcs1_pem(pemfile.read())
 			#print credential
