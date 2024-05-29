@@ -54,7 +54,7 @@ class mainfuncs:
 	#store a credential
 	@staticmethod
 	def store(args):
-		with open("pub.pem") as pemfile:
+		with open("pub.pem","r") as pemfile:
 			#load rsa public key
 			pubkey=rsa.PublicKey._load_pkcs1_pem(pemfile.read())
 			#encrypted credential
@@ -65,7 +65,7 @@ class mainfuncs:
 	#update a credential
 	@staticmethod
 	def update(args):
-		with open("pub.pem") as pemfile:
+		with open("pub.pem","r") as pemfile:
 			#load rsa public key
 			pubkey=rsa.PublicKey._load_pkcs1_pem(pemfile.read())
 			#encrypted credential
